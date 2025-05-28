@@ -10,12 +10,12 @@
 
     <script>
         async function main() {
-            await liff.init({ liffId: "YOUR_LIFF_ID" });
+            await liff.init({ liffId: "2006541812-gMvB1l0P" });
             if (!liff.isLoggedIn()) {
                 liff.login();
             } else {
                 const idToken = liff.getIDToken();
-                const res = await fetch("https://your-api.com/auth/line", {
+                const res = await fetch("https://api.englishmaniaasia.com/auth/line", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ id_token: idToken })
