@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>English Mania LIFF</title>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+<body>
+    <button id="loginButton">Login with Line</button>
+    <pre id="result"></pre>
+
+    <script>
+        async function main() {
+            await liff.init({ liffId: "YOUR_LIFF_ID" });
+            if (!liff.isLoggedIn()) {
+                liff.login();
+            } else {
+                const idToken = liff.getIDToken();
+                const res = await fetch("https://your-api.com/auth/line", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ id_token: idToken })
+                });
+                const data = await res.json();
+                document.getElementById("result").innerText = JSON.stringify(data, null, 2);
+            }
+        }
+        document.getElementById("loginButton").addEventListener("click", main);
+        main();
+    </script>
+</body>
+</html>
