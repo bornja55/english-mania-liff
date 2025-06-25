@@ -115,6 +115,11 @@
   <form id="regForm" style="display:none;">
     <input type="email" id="email" placeholder="อีเมล" required><br>
     <input type="tel" id="telephone" placeholder="เบอร์โทรศัพท์" required pattern="[0-9+ -]{7,15}"><br>
+    <select id="role" required>
+      <option value="">เลือกบทบาท</option>
+      <option value="teacher">Teacher</option>
+      <option value="student">Student</option>
+</select><br>
     <button type="submit">ลงทะเบียน</button>
   </form>
   <div id="result"></div>
@@ -169,7 +174,7 @@
         params.append('email', document.getElementById('email').value);
         params.append('telephone', document.getElementById('telephone').value);
         params.append('group', 'default');
-        params.append('role', 'user');
+        params.append('role', document.getElementById('role').value);
 
         const response = await fetch('https://script.google.com/macros/s/AKfycbzJoSUeTBzmIWRowsyzUAEgGQUmyOjKhooEtWzWxk5xjkloK16ZNXJpPXBOtjOLVgvXuA/exec', {
           method: 'POST',
