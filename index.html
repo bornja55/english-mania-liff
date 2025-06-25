@@ -42,6 +42,26 @@
       outline: none;
       border-color: #00C300;
     }
+    select {
+      width: 100%;
+      padding: 15px;
+      margin: 8px 0 15px 0;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+      background-color: white;
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill=\'%23666\' height=\'7\' viewBox=\'0 0 10 7\' width=\'10\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M0 0l5 7 5-7H0z\'/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      background-size: 10px 7px;
+    }
+    select:focus {
+      outline: none;
+      border-color: #00C300;
+      box-shadow: 0 0 8px #00C300aa;
+    }
     button { 
       width: 100%; 
       padding: 18px; 
@@ -99,7 +119,7 @@
       form {
         padding: 15px;
       }
-      input {
+      input, select {
         padding: 12px;
         font-size: 16px;
       }
@@ -119,7 +139,7 @@
       <option value="">เลือกบทบาท</option>
       <option value="teacher">Teacher</option>
       <option value="student">Student</option>
-</select><br>
+    </select><br>
     <button type="submit">ลงทะเบียน</button>
   </form>
   <div id="result"></div>
